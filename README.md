@@ -103,7 +103,15 @@ service XxxService {
 }
 ```
 ## 二、使用说明
-1. 反编译生成proto
+1. 依赖反编译工具包
+```xml
+<dependency>
+    <groupId>com.myth</groupId>
+    <artifactId>protobuf-decompiler</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
+2. 反编译生成proto
 ```java
 public static void decompile() throws IOException {
     FileDescriptor descriptor = XxxProto.getDescriptor(); //FileDescriptor
@@ -116,8 +124,8 @@ public static void decompile() throws IOException {
     ProtobufDecompiler.decompile(descriptor, outDir, excludeDependencies);
 }
 ```
-2. 项目中引入反编译生产的proto文件
-3. 编译&使用
+3. 项目中引入反编译生产的proto文件
+4. 编译&使用
 ```shell
 mvn clean compile
 ```
